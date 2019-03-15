@@ -1,0 +1,106 @@
+/**
+ * CSS for the MiniCal Plugin
+ * @author Alexandre Bastien <alexandre.bastien@fsaa.ulaval.ca>
+ * Forked from minical (Michael Klier <chi@chimeric.de>)
+ */
+
+div.dokuwiki div.plugin_minical {
+  float: left;
+  border: none;
+  padding-right: 1em
+}
+ 
+div.dokuwiki table.plugin_minical td.month {
+  text-align: center;
+  height: 1.5em;
+  vertical-align: middle;
+  color:  __black__;
+  font-weight: bold;
+  border: none;
+}
+
+div.dokuwiki table.plugin_minical {
+  border: none;
+}
+
+div.dokuwiki table.plugin_minical td.weekday {
+  text-align: right;
+  color:  __black__;
+  font-weight: bold;
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+ 
+div.dokuwiki table.plugin_minical td.day,
+div.dokuwiki table.plugin_minical td.today {
+  padding: 0.2em;
+  border: none;
+}
+ 
+div.dokuwiki table.plugin_minical td.blank {
+  border: none;
+}
+
+div.dokuwiki table.plugin_minical div.noevent,
+div.dokuwiki table.plugin_minical div.isevent {
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.2em;
+  float: right;
+  border: none;
+}
+ 
+div.dokuwiki table.plugin_minical td.today div.noevent,
+div.dokuwiki table.plugin_minical td.today div.isevent {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+}
+ 
+div.dokuwiki table.plugin_minical td.day div.isevent {
+  font-weight: bold;
+  border: none;
+}
+ 
+div.dokuwiki table.plugin_minical div.day_num {
+  float: right;
+  border: none;
+}
+
+div.dokuwiki table.plugin_minical div.day_num a:hover {
+  text-decoration: none;
+  border: none;
+}
+
+div.dokuwiki table.plugin_minical td.day div.abstract,
+div.dokuwiki table.plugin_minical td.today div.abstract {
+  display: none;
+}
+
+div.dokuwiki table.plugin_minical td.day:hover div.abstract,
+div.dokuwiki table.plugin_minical td.today:hover div.abstract {
+  display: block;
+  float: left;
+  position: relative;
+  padding: 0.5em;
+  left: 1em;
+  top: -3em;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background: white;
+  font-weight: normal;
+  width: auto;
+}
+ 
+div.dokuwiki table.plugin_minical input.btn_next_month,
+div.dokuwiki table.plugin_minical input.btn_prev_month {
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background: none;
+  width: 1.5em;
+  text-align: right;
+}
+
+div.dokuwiki a.plugin_minical_btn {
+  float: right;
+}
