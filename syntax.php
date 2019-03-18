@@ -80,7 +80,7 @@ class syntax_plugin_minical extends DokuWiki_Syntax_Plugin {
      * Handle the match
      */
     function handle($match, $state, $pos, &$handler){
-        $match = substr($match,6,-2);
+        $match = substr($match,10,-2);
         return array($match);
     }
  
