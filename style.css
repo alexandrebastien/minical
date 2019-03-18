@@ -82,13 +82,15 @@ div.dokuwiki table.plugin_minical td.today:hover div.abstract {
   float: left;
   position: relative;
   padding: 0.5em;
-  left: 1em;
-  top: -3em;
+  left: 1.5em;
+  top: -3.5em;
   border: 1px solid #ccc;
   border-radius: 10px;
   background: white;
   font-weight: normal;
   width: auto;
+  white-space: nowrap;
+  overflow: auto;
 }
  
 div.dokuwiki table.plugin_minical input.btn_next_month,
