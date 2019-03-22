@@ -36,7 +36,7 @@ class action_plugin_minical extends DokuWiki_Action_Plugin {
     }
 
      // Checks for calendar values for proper redirects
-    function handle_started(Doku_Event_Handler $event, $param) {
+    function handle_started(Doku_Event $event, $param) {
         if(is_array($_SESSION[DOKU_COOKIE])) {
             if(array_key_exists('plugin_minical_month', $_SESSION[DOKU_COOKIE])) {
                 $_REQUEST['plugin_minical_month'] = $_SESSION[DOKU_COOKIE]['plugin_minical_month'];
@@ -48,7 +48,7 @@ class action_plugin_minical extends DokuWiki_Action_Plugin {
     }
 
      // Inserts the hidden redirect id field into edit form
-    function handle_form(Doku_Event_Handler $event, $param) {
+    function handle_form(Doku_Event $event, $param) {
         if(array_key_exists('plugin_minical_redirect_id', $_REQUEST)) {
             $event->data->addHidden('plugin_minical_redirect_id', cleanID($_REQUEST['plugin_minical_redirect_id']));
             $event->data->addHidden('plugin_minical_month', cleanID($_REQUEST['plugin_minical_month']));
@@ -57,7 +57,7 @@ class action_plugin_minical extends DokuWiki_Action_Plugin {
     }
 
      // Redirects to the calendar page
-    function handle_redirect(Doku_Event_Handler $event, $param) {
+    function handle_redirect(Doku_Event $event, $param) {
         if(array_key_exists('plugin_minical_redirect_id', $_REQUEST)) {
             @session_start();
             $_SESSION[DOKU_COOKIE]['plugin_minical_month'] = $_REQUEST['plugin_minical_month'];
