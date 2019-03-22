@@ -79,7 +79,7 @@ class syntax_plugin_minical extends DokuWiki_Syntax_Plugin {
     /**
      * Handle the match
      */
-    function handle($match, $state, $pos, &$handler){
+    function handle($match, $state, $pos, Doku_Event_Handler $handler){
         $match = substr($match,10,-2);
         return array($match);
     }
@@ -87,7 +87,7 @@ class syntax_plugin_minical extends DokuWiki_Syntax_Plugin {
     /**
      * Create output
      */
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Event_Handler $renderer, $data) {
         global $ID;
         global $conf;
 
