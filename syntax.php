@@ -122,14 +122,19 @@ class syntax_plugin_minical extends DokuWiki_Syntax_Plugin {
                     $this->month_ns = $this->calendar_ns.':'.$this->showYear.':'.$this->showMonth;
                 }
             }
-
+/* 
             if($this->MonthStart == 7 && $this->getConf('weekstart') == 'Sunday') {
                 $this->MonthStart = 0;
             } else {
                 $this->MonthStart = ($this->viewDate['wday'] == 0) ? 7 : $this->viewDate['wday'];
             }
- 
-            // turn off caching
+*/ 
+	    $this->MonthStart = ($this->viewDate['wday'] == 0) ? 7 : $this->viewDate['wday'];
+            if($this->MonthStart == 7 && $this->getConf('weekstart') == 'Sunday') {
+                $this->MonthStart = 0;
+            }
+            
+	// turn off caching
             $renderer->info['cache'] = false;
  
             $renderer->doc .= '<div class="plugin_minical">' . DOKU_LF;
