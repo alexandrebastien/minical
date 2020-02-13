@@ -281,7 +281,11 @@ CALHEAD;
             $out .= '<div class="noevent">';
             if(auth_quickaclcheck($wp) >= AUTH_CREATE) {
 				$out .= '<a href="' . wl($wp, array('do' => 'edit', 'plugin_minical_redirect_id' => $ID, 'plugin_minical_month' => $this->showMonth, 'plugin_minical_year' => $this->showYear)) . '" class="plugin_minical_btn" title="' . $lang['btn_create'] . '">'.$day.'</a>' . DOKU_LF;
-            }
+            } else {
+				if (auth_quickaclcheck($wp) >= AUTH_READ) {
+					$out .= '<span class="plugin_minical_btn">' . $day . '</span>' . DOKU_LF;
+				}
+			}
         }
         $out .= '</div>';
         return ($out);
