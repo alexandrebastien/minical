@@ -103,6 +103,7 @@ div.dokuwiki table.plugin_minical input.btn_prev_month {
   text-align: right;
 }
 
-div.dokuwiki a.plugin_minical_btn {
+div.dokuwiki a.plugin_minical_btn,
+div.dokuwiki span.plugin_minical_btn {
   float: right;
 }
