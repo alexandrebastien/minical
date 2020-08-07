@@ -1,8 +1,8 @@
 # General Plugin Info do not edit
 base   minical
 author Alexandre Bastien
-email  alexandre.bastien@fsaa.ulaval,ca
-date   2020-02-13
+email  alexandre.bastien@fsaa.ulaval.ca
+date   2020-08-06
 name   MiniCal Plugin
 desc   Adds a simple calendar to a wiki page. Simpler version, forked from wikicalendar.
 url    http://www.dokuwiki.org/plugin:minical
