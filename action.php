@@ -32,6 +32,7 @@ class action_plugin_minical extends DokuWiki_Action_Plugin {
     function register(Doku_Event_Handler $controller) {
         $controller->register_hook('ACTION_SHOW_REDIRECT', 'BEFORE', $this, 'handle_redirect');
         $controller->register_hook('HTML_EDITFORM_OUTPUT', 'BEFORE', $this, 'handle_form');
+        $controller->register_hook('FORM_EDIT_OUTPUT', 'BEFORE', $this, 'handle_form');
         $controller->register_hook('DOKUWIKI_STARTED', 'BEFORE', $this, 'handle_started');
     }
 
@@ -50,9 +51,16 @@ class action_plugin_minical extends DokuWiki_Action_Plugin {
      // Inserts the hidden redirect id field into edit form
     function handle_form(Doku_Event $event, $param) {
         if(array_key_exists('plugin_minical_redirect_id', $_REQUEST)) {
-            $event->data->addHidden('plugin_minical_redirect_id', cleanID($_REQUEST['plugin_minical_redirect_id']));
-            $event->data->addHidden('plugin_minical_month', cleanID($_REQUEST['plugin_minical_month']));
-            $event->data->addHidden('plugin_minical_year', cleanID($_REQUEST['plugin_minical_year']));
+            $form = $event->data;
+            if(is_a($form, \dokuwiki\Form\Form::class)) {
+                $form->setHiddenField('plugin_minical_redirect_id', cleanID($_REQUEST['plugin_minical_redirect_id']));
+                $form->setHiddenField('plugin_minical_month', cleanID($_REQUEST['plugin_minical_month']));
+                $form->setHiddenField('plugin_minical_year', cleanID($_REQUEST['plugin_minical_year']));
+            } else {
+                $form->addHidden('plugin_minical_redirect_id', cleanID($_REQUEST['plugin_minical_redirect_id']));
+                $form->addHidden('plugin_minical_month', cleanID($_REQUEST['plugin_minical_month']));
+                $form->addHidden('plugin_minical_year', cleanID($_REQUEST['plugin_minical_year']));
+            }
         }
     }
 
